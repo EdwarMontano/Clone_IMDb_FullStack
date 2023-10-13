@@ -17,7 +17,7 @@ services:
     depends_on:
       - postgres
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5436/parquesoft
+      SPRING_DATASOURCE_URL: jdbc:postgresql://host.docker.internal:5436/parquesoft
       SPRING_DATASOURCE_USERNAME: useradmin
       SPRING_DATASOURCE_PASSWORD: mysecretpassword
 

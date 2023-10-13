@@ -1,10 +1,10 @@
-package com.parquesoft.BackenCloneIMDB;
+package com.parquesoft.backendcloneimdb;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BackenCloneImdbApplicationTests {
+class BackendCloneImdbApplicationTests {
 
 	@Test
 	void contextLoads() {
