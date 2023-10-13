@@ -1,0 +1,34 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: parquesoft
+      POSTGRES_USER: useradmin
+      POSTGRES_PASSWORD: mysecretpassword
+    volumes:
+      - /Users/chocoplot/Documents/docker-test/test:/var/lib/postgresql/data
+    ports:
+      - "5436:5432"
+  backend:
+    image: backend-imdb
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5436/parquesoft
+      SPRING_DATASOURCE_USERNAME: useradmin
+      SPRING_DATASOURCE_PASSWORD: mysecretpassword
+
+  frontend:
+    image: frontend-imdb
+    ports:
+      - "3000:3000"
+    environment:
+      REACT_APP_API_URL: http://backend:8080
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
